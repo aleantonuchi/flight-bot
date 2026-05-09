@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: flight-alert-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: AI_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: AMADEUS_API_KEY
+        sync: false
+      - key: AMADEUS_API_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: CHECK_INTERVAL_SECONDS
+        value: "21600"
