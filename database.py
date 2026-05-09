@@ -14,7 +14,7 @@ from config import DATABASE_URL
 
 @asynccontextmanager
 async def _conn():
-    conn = await asyncpg.connect(DATABASE_URL)
+    conn = await asyncpg.connect(DATABASE_URL, ssl="require")
     try:
         yield conn
     finally:
